@@ -1,0 +1,16 @@
+{
+  "name": "ice-main",
+  "version": "1.0.0",
+  "description": "ICE is a Python library and trace visualizer for language model programs.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
