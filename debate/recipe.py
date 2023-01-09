@@ -17,14 +17,13 @@ async def turn(debate: Debate, agent: Agent, agent_name: Name, turns_left: int):
 
 async def debate(question: str):
 
-    count = 0
     agents = [recipe.agent(), recipe.agent()]
     agent_names = ["Alice", "Bob"]
     debate = initialize_debate(question)
     turns_left = 8
     while turns_left > 0:
         for agent, agent_name in zip(agents, agent_names):
-            response = await turn(debate, agent, agent_name, turns_left, count)
+            response = await turn(debate, agent, agent_name, turns_left)
             debate.append(response)
             turns_left -= 1
 
