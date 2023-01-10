@@ -1,4 +1,3 @@
-import os
 import json
 import csv
 
@@ -6,9 +5,10 @@ import csv
 from pathlib import Path
 
 import pdb
+import os
+
 
 class TestDebates:
-
     def __init__(self, file_name):
         JSON_loaded = open(file_name)
         self.file_name = file_name
@@ -99,7 +99,7 @@ class TestDebates:
         for prompt in prompts_list:
 
             for question in questions_list:
-                command = f"python debate/recipe.py --question \"{question}\" "
+                command = f'python debate/recipe.py --question "{question}" '
                 os.system(command)
                 test_debates_instance.increment_current_question()
 
@@ -111,8 +111,9 @@ class TestDebates:
         # reset count variables for questions/prompts
         test_debates_instance.reset_prompt_count()
 
+
 # Initialize our class of prompts/questions
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     # initialize instance
     test_debates_instance = TestDebates("debate/inputs.json")
