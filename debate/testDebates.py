@@ -2,6 +2,11 @@ import os
 import json
 import csv
 
+# needed to check if the output file exists
+from pathlib import Path
+
+import pdb
+
 class TestDebates:
 
     def __init__(self, file_name):
@@ -55,10 +60,30 @@ class TestDebates:
 
     def write_results(self, file_name, data):
 
-        # appends to existing csv
-        with open(file_name, 'a') as file:
-            writer = csv.writer(file)
-            writer.writerow(data)
+        # check if the file exists. If it doesn't, ensure it has a proper header
+        # before writing out results
+        from pathlib import Path
+
+        path = Path(file_name)
+
+        # pdb.set_trace()
+        if not path.is_file():
+
+            with open(file_name, 'w', newline='') as file:
+
+                # adding header
+                headerList = ['Question', 'Prompt', 'Results']
+                writer = csv.writer(file)
+                writer.writerow(headerList)
+                writer.writerow(data)
+        else:
+            with open(file_name,'a') as file:
+                 writer = csv.writer(file)
+                 writer.writerow(data)
+
+                # data format: question, prompt, results
+                # headerList = ['Question', 'Question_V', 'Prompt', 'Prompt_V' 'Results']
+                # appends to existing csv
 
 
 
@@ -94,3 +119,5 @@ if __name__ == '__main__':
 
     # immediately start the program based on the prompts/questions
     test_debates_instance.execute_debate()
+
+# [{"version": 1, "question": "Is a burger a hotdog?"}]
