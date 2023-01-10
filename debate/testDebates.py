@@ -78,12 +78,13 @@ class TestDebates:
                 os.system(command)
                 test_debates_instance.increment_current_question()
 
+            test_debates_instance.reset_question_count()
+
             # increment our current prompt
             test_debates_instance.increment_current_prompt()
 
         # reset count variables for questions/prompts
         test_debates_instance.reset_prompt_count()
-        test_debates_instance.reset_question_count()
 
 # Initialize our class of prompts/questions
 if __name__ == '__main__':

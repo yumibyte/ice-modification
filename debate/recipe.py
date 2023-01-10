@@ -33,13 +33,12 @@ async def debate(question: str):
     # compile a new row of a generated prompt to be outputted to the csv
     # format: question, prompt, responses
 
+    test_debates_instance = testDebates.TestDebates("debate/inputs.json")
+
     # generate instance of TestDebates to append results to a csv file
     generated_debate = [test_debates_instance.get_current_question(), test_debates_instance.get_current_prompt(), debate]
-    test_debates_instance = testDebates.TestDebates("debate/inputs.json")
-    test_debates_instance.write_results("debate/outputs.json", generated_debate)
+    test_debates_instance.write_results("debate/outputs.csv", generated_debate)
 
-
-    # print("RESULT:::" + generated_debate)
     return render_debate(debate)
 
 recipe.main(debate)
