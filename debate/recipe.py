@@ -6,6 +6,7 @@ from ice.agents.base import Agent
 from ice.recipe import recipe
 from prompt import *
 
+import testDebates
 
 async def turn(debate: Debate, agent: Agent, agent_name: Name, turns_left: int):
 
@@ -27,6 +28,18 @@ async def debate(question: str):
             debate.append(response)
             turns_left -= 1
 
+    # write out the full debate to the current file
+    # print("FULL DEBATE" + str(debate))
+    # compile a new row of a generated prompt to be outputted to the csv
+    # format: question, prompt, responses
+
+    # generate instance of TestDebates to append results to a csv file
+    generated_debate = [test_debates_instance.get_current_question(), test_debates_instance.get_current_prompt(), debate]
+    test_debates_instance = testDebates.TestDebates("debate/inputs.json")
+    test_debates_instance.write_results("debate/outputs.json", generated_debate)
+
+
+    # print("RESULT:::" + generated_debate)
     return render_debate(debate)
 
 recipe.main(debate)
