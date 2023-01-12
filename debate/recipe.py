@@ -1,8 +1,11 @@
 
-from prompt import *
+# import pdb
+# pdb.set_trace()
 
 from ice.agents.base import Agent
 from ice.recipe import recipe
+from prompt import *
+
 
 import testDebates
 
@@ -37,6 +40,4 @@ async def debate(question: str):
     test_debates_instance.write_results("debate/outputs.csv", generated_debate)
 
     return render_debate(debate)
-
-
 recipe.main(debate)

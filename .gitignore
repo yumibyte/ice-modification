@@ -20,4 +20,5 @@
 .ought-ice
 **/gold_standards
 **/outputs.csv
+**/*.json
 **/inputs.json
