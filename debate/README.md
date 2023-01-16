@@ -28,3 +28,4 @@ TODO: add a sample input JSON format here (this is subject to change)
 ## Future of the project:
 - Create an interface for prompt/question inputting
   - On the same note, remove the need to modify input/output files in multiple locations
+- Test out debates with IBM Debater datasets
