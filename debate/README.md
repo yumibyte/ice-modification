@@ -1,4 +1,4 @@
-## Modifications to the ICE repository
+# Modifications to the ICE repository
 
 ## Automatic prompt/question testing:
 - To test out many prompts/questions the "testDebates.py" file takes an input of a JSON of prompts/questions and writes them to an output file with the generated debate
